@@ -7,9 +7,10 @@ class LoginEvent extends Equatable {
 }
 
 class LoginWithCredentials extends LoginEvent {
-  String email;
+  String username;
   String password;
-  LoginWithCredentials(this.email, this.password);
+  LoginWithCredentials(this.username, this.password);
   @override
-  List<Object> get props => [email, password];
+  List<Object> get props => [username, password];
 }
+class ForgotPassword extends LoginEvent{}
