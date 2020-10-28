@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_app_excellence/blocs/loginbloc/loginbloc.dart';
 import 'package:hr_app_excellence/blocs/loginbloc/loginevent.dart';
 import 'package:hr_app_excellence/blocs/loginbloc/loginstate.dart';
+import 'package:hr_app_excellence/screen/homescreen/homescreen.dart';
 import 'package:hr_app_excellence/widgets/login_widget/bottomfeature.dart';
 import 'package:hr_app_excellence/widgets/login_widget/bottomlist.dart';
 import 'package:hr_app_excellence/widgets/login_widget/welcomescreen.dart';
@@ -18,6 +19,13 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   TextEditingController usernameController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+  bool _obscuretext = true;
+  void showPassword() {
+    setState(() {
+      _obscuretext = !_obscuretext;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final emailField =
@@ -43,13 +51,18 @@ class _LoginScreenState extends State<LoginScreen> {
         BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
       return TextFormField(
         controller: passwordController,
-        obscureText: true,
+        obscureText: _obscuretext,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hoverColor: Colors.grey,
-          hintText: "Password",
-          prefixIcon: new Icon(Icons.lock),
-        ),
+            contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            hoverColor: Colors.grey,
+            hintText: "Password",
+            prefixIcon: new Icon(Icons.lock),
+            suffixIcon: IconButton(
+              icon: Icon(Icons.remove_red_eye),
+              onPressed: () {
+                showPassword();
+              },
+            )),
         validator: (value) {
           if (value.isEmpty) {
             return 'Enter Credentials';
@@ -136,8 +149,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               passwordController.text));
                           if (LoginState is LoginSuccess) {
                             print('Login Succes');
-                            Scaffold.of(context).hideCurrentSnackBar();
-                            
+                            // Scaffold.of(context).hideCurrentSnackBar();
+                       Navigator.of(context).push(_createRoute());
                           } else if (LoginState is LoginFalure) {
                             print('Login Falure');
                           }
@@ -161,22 +174,22 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-// Route _createRoute() {
-//   return PageRouteBuilder(
-//     pageBuilder: (context, animation, secondaryAnimation) => SignupScreen(),
-//     transitionDuration: Duration(milliseconds: 800),
-//             reverseTransitionDuration: Duration(milliseconds: 600),
+Route _createRoute() {
+  print('route creating');
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => HomeScreen(),
+    transitionDuration: Duration(milliseconds: 800),
+    reverseTransitionDuration: Duration(milliseconds: 600),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var begin = Offset(0.0, 1.0);
+      var end = Offset.zero;
+      var curve = Curves.ease;
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
-//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-//       var begin = Offset(0.0, 1.0);
-//       var end = Offset.zero;
-//       var curve = Curves.ease;
-//       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-//       return SlideTransition(
-//         position: animation.drive(tween),
-//         child: child,
-//       );
-//     },
-//   );
-// }
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
