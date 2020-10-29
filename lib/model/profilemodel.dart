@@ -1,10 +1,10 @@
-class ProfileMOdel {
+class ProfileModel {
   int error;
   Data data;
 
-  ProfileMOdel({this.error, this.data});
+  ProfileModel({this.error, this.data});
 
-  ProfileMOdel.fromJson(Map<String, dynamic> json) {
+  ProfileModel.fromJson(Map<String, dynamic> json) {
     error = json['error'];
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
@@ -18,7 +18,42 @@ class ProfileMOdel {
     return data;
   }
 }
+
 class Data {
+  UserProfileDetail userProfileDetail;
+  Null userBankDetail;
+  List<UserAssignMachine> userAssignMachine;
+
+  Data({this.userProfileDetail, this.userBankDetail, this.userAssignMachine});
+
+  Data.fromJson(Map<String, dynamic> json) {
+    userProfileDetail = json['user_profile_detail'] != null
+        ? new UserProfileDetail.fromJson(json['user_profile_detail'])
+        : null;
+    userBankDetail = json['user_bank_detail'];
+    if (json['user_assign_machine'] != null) {
+      userAssignMachine = new List<UserAssignMachine>();
+      json['user_assign_machine'].forEach((v) {
+        userAssignMachine.add(new UserAssignMachine.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.userProfileDetail != null) {
+      data['user_profile_detail'] = this.userProfileDetail.toJson();
+    }
+    data['user_bank_detail'] = this.userBankDetail;
+    if (this.userAssignMachine != null) {
+      data['user_assign_machine'] =
+          this.userAssignMachine.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class UserProfileDetail {
   String status;
   String username;
   String type;
@@ -30,18 +65,18 @@ class Data {
   String dob;
   String gender;
   String maritalStatus;
-  String address1;
-  String address2;
-  String city;
-  String state;
-  String zipPostal;
-  String country;
-  String homePh;
-  String mobilePh;
+  Null address1;
+  Null address2;
+  Null city;
+  Null state;
+  Null zipPostal;
+  Null country;
+  Null homePh;
+  Null mobilePh;
   String workEmail;
   String otherEmail;
   String image;
-  String bankAccountNum;
+  Null bankAccountNum;
   String specialInstructions;
   String panCardNum;
   String permanentAddress;
@@ -54,7 +89,7 @@ class Data {
   String slackId;
   String policyDocument;
   String team;
-  String trainingCompletionDate;
+  Null trainingCompletionDate;
   Null terminationDate;
   String trainingMonth;
   String slackMsg;
@@ -62,7 +97,7 @@ class Data {
   String metaData;
   String profileImage;
 
-  Data(
+  UserProfileDetail(
       {this.status,
       this.username,
       this.type,
@@ -106,7 +141,7 @@ class Data {
       this.metaData,
       this.profileImage});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  UserProfileDetail.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     username = json['username'];
     type = json['type'];
@@ -195,6 +230,51 @@ class Data {
     data['signature'] = this.signature;
     data['meta_data'] = this.metaData;
     data['profileImage'] = this.profileImage;
+    return data;
+  }
+}
+
+class UserAssignMachine {
+  String id;
+  String machineType;
+  String machineName;
+  String macAddress;
+  String serialNumber;
+  String billNumber;
+  String userId;
+  String assignDate;
+
+  UserAssignMachine(
+      {this.id,
+      this.machineType,
+      this.machineName,
+      this.macAddress,
+      this.serialNumber,
+      this.billNumber,
+      this.userId,
+      this.assignDate});
+
+  UserAssignMachine.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    machineType = json['machine_type'];
+    machineName = json['machine_name'];
+    macAddress = json['mac_address'];
+    serialNumber = json['serial_number'];
+    billNumber = json['bill_number'];
+    userId = json['user_Id'];
+    assignDate = json['assign_date'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['machine_type'] = this.machineType;
+    data['machine_name'] = this.machineName;
+    data['mac_address'] = this.macAddress;
+    data['serial_number'] = this.serialNumber;
+    data['bill_number'] = this.billNumber;
+    data['user_Id'] = this.userId;
+    data['assign_date'] = this.assignDate;
     return data;
   }
 }

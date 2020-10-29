@@ -12,8 +12,7 @@ class LoginInitial extends LoginState {}
 
 class LoginSuccess extends LoginState {
   String message;
-  //FormzStatus status;
-  LoginSuccess({this.message});
+  LoginSuccess(this.message);
   @override
   List<Object> get props => [message];
 }

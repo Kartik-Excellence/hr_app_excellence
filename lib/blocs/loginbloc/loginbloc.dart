@@ -6,10 +6,9 @@ import 'package:hr_app_excellence/requests/loginrequest.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginInitial());
 
-  @override
   void onTransition(Transition<LoginEvent, LoginState> transition) {
-    print(transition.toString());
     super.onTransition(transition);
+    
   }
 
   @override
@@ -26,11 +25,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       responseError = value.error;
     });
     if (responseError == 0) {
-      print('succes console');
-      yield LoginSuccess();
+      yield LoginSuccess('SUCCESS');
     } else if (responseError == 1) {
-      print('failed');
-      yield LoginFalure('sdfd');
+      yield LoginFalure('FAIL');
     }
   }
 }

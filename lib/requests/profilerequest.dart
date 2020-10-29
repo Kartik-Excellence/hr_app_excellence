@@ -1,11 +1,21 @@
-// import 'package:hr_app_excellence/model/profilemodel.dart';
-// import 'package:hr_app_excellence/requests/post.dart';
+import 'dart:convert';
 
-// //url= "https://apistaginghr.excellencetechnologies.in/attendance/sal_info/api.php";
+import 'package:hr_app_excellence/model/profilemodel.dart';
+import 'package:hr_app_excellence/requests/post.dart';
+import 'package:hr_app_excellence/service/storageutil.dart';
 
-// class ProfileRequest{
-//   ProfileMOdel _profileMOdel=ProfileMOdel();
-// Post _post=Post();
-// Future<ProfileMOdel>fetchProfileData()
+//url= "https://apistaginghr.excellencetechnologies.in/attendance/sal_info/api.php";
+ProfileModel profileModel = ProfileModel();
+Post _post = Post();
+Future<ProfileModel> fetchProfile() async {
+  final url =
+      "https://apistaginghr.excellencetechnologies.in/attendance/sal_info/api.php";
+  var token = StorageUtil.getUserToken();
+  Map data = {"action": "get_user_profile_details", "token": token};
 
-// }
+  return _post
+      .post(url, body: json.encode(data))
+      .then((dynamic response) async {
+    return ProfileModel.fromJson(response);
+  });
+}
