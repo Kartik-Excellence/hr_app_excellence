@@ -25,3 +25,4 @@ Future<LoginModel> fetchData(String username, String password) async {
     return LoginModel.fromJson(response);
   });
 }
+

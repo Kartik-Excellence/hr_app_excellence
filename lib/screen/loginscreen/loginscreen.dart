@@ -28,12 +28,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final _loginBloc = BlocProvider.of<LoginBloc>(context);
-
-    // _onLoginButtonPressed() {
-    //   _loginBloc.add(LoginWithCredentials(
-    //       usernameController.text, passwordController.text));
-    // }
 
     final emailField =
         BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {

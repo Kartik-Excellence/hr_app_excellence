@@ -11,8 +11,9 @@ class Post {
       final int statusCode = response.statusCode;
       if (statusCode == 200) {
         return _decoder.convert(res);
-      } else
-        throw Exception('inalid response');
+      } else {
+        throw Exception('invalid response');
+      }
     });
   }
 }

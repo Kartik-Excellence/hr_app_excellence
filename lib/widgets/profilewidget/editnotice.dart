@@ -36,7 +36,7 @@ class EditNotice extends StatelessWidget {
                   color: AppColors.LIGHT_VOILET),                
                 child: Text("If you want to edit contact HR",
                     style: TextStyle(
-                      fontFamily: 'SourceSans',
+                     
                       color: AppColors.DARK_VOILET,
                     ))),
           )

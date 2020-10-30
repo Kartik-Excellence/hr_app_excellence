@@ -6,9 +6,13 @@ class ProfileState extends Equatable {
   // TODO: implement props
   List<Object> get props => [];
 }
-class ProfileInitial extends ProfileState{}
 
-class ProfileLoading extends ProfileState{
+class ProfileInitial extends ProfileState {}
 
+class ProfileLoading extends ProfileState {}
+
+class ProfileSuccess extends ProfileState {
+  final data;
+  ProfileSuccess(this.data);
+  List<Object> get props => [data];
 }
-class ProfileSuccess extends ProfileState{}

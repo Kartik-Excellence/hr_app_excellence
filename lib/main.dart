@@ -11,7 +11,7 @@ import 'package:hr_app_excellence/screen/loginscreen/mainscreen.dart';
 import 'package:hr_app_excellence/service/storageutil.dart';
 
 void main() async {
-  await StorageUtil.getINstance() ;
+  await StorageUtil.getINstance();
   runApp(MyApp());
 }
 
