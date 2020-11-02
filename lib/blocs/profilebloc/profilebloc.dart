@@ -8,7 +8,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc() : super(ProfileInitial());
   
   void onTransition(Transition<ProfileEvent, ProfileState> transition) {
-    print(transition.toString());
+   
     super.onTransition(transition);
   }
 

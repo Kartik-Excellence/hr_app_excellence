@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hr_app_excellence/resources/appcolors.dart';
 
-class SubTitle extends StatelessWidget {
+class HeadTitle extends StatelessWidget {
   String string;
-  SubTitle(this.string);
+  HeadTitle(this.string);
   @override
   Widget build(BuildContext context) {
-    return 
-    ListTile(
+    return ListTile(
       contentPadding: EdgeInsets.only(left: 10),
-      tileColor: AppColors.EDIT_TEXT_COLOR,
+      tileColor: Colors.white,
       title: Text(string,
-      style: TextStyle(fontFamily: 'OpenSans',fontSize: 16,)),
+      style: TextStyle(fontFamily: 'OpenSans',fontSize: 18,color: AppColors.MIDIUM_BLACK)      ),
     );
   }
 }

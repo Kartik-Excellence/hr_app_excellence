@@ -28,7 +28,8 @@ class HomeScreen extends StatelessWidget {
           actions: <Widget>[
             CircleAvatar(
                 radius: 20,
-                backgroundImage: NetworkImage(StorageUtil.getProfileImage()))
+                //backgroundImage: NetworkImage(StorageUtil.getProfileImage())
+                )
           ],
           elevation: 0,
           backgroundColor: AppColors.GREEN_COLOR,

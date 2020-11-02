@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:hr_app_excellence/model/profilemodel.dart';
 import 'package:hr_app_excellence/requests/profilerequest.dart';
+import 'package:hr_app_excellence/resources/appcolors.dart';
 import 'package:hr_app_excellence/service/storageutil.dart';
 
 class IdCard extends StatelessWidget {
@@ -11,7 +12,9 @@ class IdCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.all(6),
       child: Column(
+        
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,9 +31,18 @@ class IdCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(profileModel.data.userProfileDetail.name, textDirection: TextDirection.ltr,),
-                Text(profileModel.data.userProfileDetail.jobtitle),
-                Text(profileModel.data.userProfileDetail.id),
+                      Text(profileModel.data.userProfileDetail.name, textDirection: TextDirection.ltr,style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 18,
+                          )),
+                Text(profileModel.data.userProfileDetail.jobtitle,style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,
+                          )),
+                Text(profileModel.data.userProfileDetail.id,style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,
+                          )),
                   ],),
                 ),
                 ),
@@ -38,11 +50,56 @@ class IdCard extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Text('Joining Date:'+profileModel.data.userProfileDetail.dateofjoining),
-              Text('Working Email:'+profileModel.data.userProfileDetail.workEmail),
-              Text('Gender:'+profileModel.data.userProfileDetail.gender),
-              Text('Date Of Birth'+profileModel.data.userProfileDetail.dob),
-              Text('Contact'+profileModel.data.userProfileDetail.emergencyPh1)
+          Row(children: [
+            Text('Joining Date: ',style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,color: AppColors.FADE_BLACK
+                          )),
+            Text(profileModel.data.userProfileDetail.dateofjoining,style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,
+                          ))
+          ],),
+          Row(children: [
+            Text('Working Email: ',style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,  color: AppColors.FADE_BLACK
+                          )),
+            Text(profileModel.data.userProfileDetail.workEmail,style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,
+                        ))
+          ],),
+          Row(children: [
+            Text('Gender: ',style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,  color: AppColors.FADE_BLACK
+                          )),
+            Text(profileModel.data.userProfileDetail.gender,style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,
+                          ))
+          ],),
+          Row(children: [
+            Text('Date Of Birth: ',style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,color: AppColors.FADE_BLACK
+                          )),
+            Text(profileModel.data.userProfileDetail.dob,style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,
+                          ))
+          ],),
+          Row(children: [
+            Text('Contact: ',style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,color: AppColors.FADE_BLACK
+                          )),
+            Text(profileModel.data.userProfileDetail.emergencyPh1,style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          fontSize: 14,
+                          ))
+          ],)
          
           
         ],

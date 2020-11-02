@@ -15,19 +15,19 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
-      print(state);
       if (state is ProfileInitial) {
         context.bloc<ProfileBloc>().add(ProfileLoadingEvent());
       }
       if (state is ProfileSuccess) {
         ProfileModel profileModel = ProfileModel.fromJson(state.data.toJson());
-        print(profileModel.data.userProfileDetail.name);
+        print(profileModel.data.userBankDetail);
         return Scaffold(
           appBar: AppBar(
             actions: <Widget>[
               CircleAvatar(
                   radius: 20,
-                  backgroundImage: NetworkImage(StorageUtil.getProfileImage()))
+                  //backgroundImage: NetworkImage(StorageUtil.getProfileImage())
+                  )
             ],
             title: Text('My Profile'),
             elevation: 0,
@@ -41,9 +41,7 @@ class ProfileScreen extends StatelessWidget {
                   EditNotice(),
                   IdCard(profileModel),
                   ProfileBody(profileModel),
-
-                  
-                  ],
+                ],
               ),
             ),
           ),

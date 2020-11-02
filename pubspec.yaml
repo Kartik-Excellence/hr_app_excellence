@@ -29,6 +29,7 @@ dependencies:
   equatable: ^1.2.0
   formz: ^0.3.1
   shared_preferences: ^0.5.10
+  webdriver: any
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -36,8 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
-  flutter_test:
+  flutter_driver:
     sdk: flutter
+  test: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -54,6 +56,14 @@ flutter:
   assets:
     - assets/config/
     - assets/images/
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: fonts/OpenSansCondensed-Light.ttf
+      
+    - family: SourceSans
+      fonts:
+        - asset: fonts/SourceSansPro-Regular.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
