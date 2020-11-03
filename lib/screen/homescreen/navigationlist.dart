@@ -4,9 +4,11 @@ import 'package:hr_app_excellence/screen/loginscreen/loginscreen.dart';
 import 'package:hr_app_excellence/screen/profilescreen/profilescreen.dart';
 
 class NavigationList extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Drawer(
+     // key: Key('NavigationLIst'),
       child:ListView(children: <Widget>[
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),

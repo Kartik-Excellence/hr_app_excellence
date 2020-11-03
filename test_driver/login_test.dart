@@ -1,11 +1,12 @@
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
+import 'homescreen_test.dart';
 
-void loginTest() async{
-  group('Login Test',() {
+void loginTest(FlutterDriver flutterDriver) async {
+  group('Login Test/', () {
     final emailMsg = find.byValueKey('email');
     final psswordMsg = find.byValueKey('password');
-    FlutterDriver flutterDriver;
+
     setUpAll(() async {
       flutterDriver = await FlutterDriver.connect();
     });
@@ -15,7 +16,7 @@ void loginTest() async{
       }
     });
 
-    test('Login Form Fill', () async {
+    test('Form Fill/', () async {
       await flutterDriver.tap(emailMsg);
       await Future.delayed(Duration(seconds: 2));
       await flutterDriver.enterText('kartikjabreba');
@@ -25,25 +26,11 @@ void loginTest() async{
       await flutterDriver.enterText('CMJ97');
     });
 
-    test('Form Fill Test', () async {
-      // await flutterDriver.tap(find.byType("TextFormField"));
-      // await flutterDriver.enterText('kartikjabreba');
-      // await flutterDriver.tap(find.byType("TextFormField"));
-      // await flutterDriver.enterText('CMJ97');
+    test('Button Test/', () async {
       await flutterDriver.tap(find.byType("FlatButton"));
       await Future.delayed(Duration(seconds: 2));
-
-
-      // expect(await flutterDriver.waitFor(find.text('Login....')), matcher) ;
     });
 
-     test('Home SCreen', () async {
-       await flutterDriver.waitFor(find.text('All employee information at one page'));
-       await Future.delayed(Duration(seconds: 2));
-
-    });
-
-
-  }
-  );
+    
+  });
 }

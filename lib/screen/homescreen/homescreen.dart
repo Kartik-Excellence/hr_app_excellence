@@ -24,7 +24,9 @@ class HomeScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+       // key: Key('NavigationList'),
         appBar: AppBar(
+          
           actions: <Widget>[
             CircleAvatar(
                 radius: 20,
@@ -35,7 +37,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: AppColors.GREEN_COLOR,
           title: Text('Home'),
         ),
-        drawer: NavigationList(),
+        drawer: Tooltip(message: 'Navigation',child: NavigationList(),),
         body: SingleChildScrollView(
           child: Overview(),
         ),
