@@ -30,6 +30,7 @@ dependencies:
   formz: ^0.3.1
   shared_preferences: ^0.5.10
   webdriver: any
+  mock_web_server: ^4.1.1
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -9,7 +9,6 @@ import 'package:hr_app_excellence/screen/homescreen/homescreen.dart';
 import 'package:hr_app_excellence/screen/loginscreen/loginscreen.dart';
 import 'package:hr_app_excellence/screen/loginscreen/mainscreen.dart';
 import 'package:hr_app_excellence/service/storageutil.dart';
-
 void main() async {
   await StorageUtil.getINstance();
   runApp(MyApp());

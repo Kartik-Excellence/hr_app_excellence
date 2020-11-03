@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   color: Colors.transparent,
                                 )),
                                  
-                                child: passwordField),
+                                child: passwordField,key: Key('password'),),
                           )
                         ],
                       ),
