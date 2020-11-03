@@ -23,28 +23,35 @@ void homeScreenTest(FlutterDriver driver) async {
 
     test('App Drawer /', () async {
       await driver.waitFor(find.byType("Scaffold"));
-     // await driver.tap(find.byType("Drawer"));
+      await driver.tap(find.byValueKey('opendrawer'));
+      await Future.delayed(Duration(seconds: 2));
+    });
+    test('AppDrawer 1/', () async {
+      await driver.waitFor(find.byTooltip('Navigation'));
     });
 
-    final SerializableFinder locateDrawer = find.byTooltip('Navigation');
-    test('App Drawer 1/', () async {
-     // await driver.waitFor(find.byType("Scaffold"));
-      await driver.tap(locateDrawer);
+    test('AppDrawer 2/', () async {
+      await driver.waitFor(find.byValueKey('opendrawer'));
     });
 
-    test('App Drawer 2/', () async {
-     // await driver.waitFor(find.byType("Scaffold"));
-      await driver.tap(find.byTooltip('Navigation'));
+    test('AppDrawer 3/', () async {
+      await driver.waitFor(find.byType("Container"));
     });
+    // test('App Drawer 1/', () async {
+    //  await driver.tap(find.byType("Container"));
+    //  // await driver.tap(locateDrawer);
+    // });
 
+    // test('App Drawer 2/', () async {
+    // //  await driver.tap(find.byValueKey('opendrawer'));
+    //  // await driver.tap(locateDrawer);
+    // });
 
-
-
-  //  final SerializableFinder locateDrawer = find.byType("NavigationList");
-  //   test('App Drawer 1/', () async {
-  //     await driver.waitFor(find.byType("Scaffold"));
-  //     await driver.tap(find.byType("Drawer"));
-  //   });
+    //  final SerializableFinder locateDrawer = find.byType("NavigationList");
+    //   test('App Drawer 1/', () async {
+    //     await driver.waitFor(find.byType("Scaffold"));
+    //     await driver.tap(find.byType("Drawer"));
+    //   });
 
     // test('App Drawer 2/', () async {
     //   await driver.waitFor(find.byType("Scaffold"));
@@ -60,6 +67,5 @@ void homeScreenTest(FlutterDriver driver) async {
     //   await driver.waitFor(find.byType("Scaffold"));
     //   await driver.tap(find.byType("NavigationList"));
     // });
-
   });
 }

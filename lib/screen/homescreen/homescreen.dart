@@ -37,7 +37,9 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: AppColors.GREEN_COLOR,
           title: Text('Home'),
         ),
-        drawer: Tooltip(message: 'Navigation',child: NavigationList(),),
+        drawer: Container(key: Key('opendrawer'),
+        child: NavigationList(),
+        ),
         body: SingleChildScrollView(
           child: Overview(),
         ),
