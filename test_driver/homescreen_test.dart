@@ -34,10 +34,10 @@ void homeScreenTest(FlutterDriver driver) async {
     // });
 
     test('App Drawer 2', () async {
-      final SerializableFinder app = find.byValueKey('NavigationLIst');
-      await driver.scroll(app, 300.0, 0.0, const Duration(milliseconds: 300));
+      await driver.scroll(
+          find.byType("Drawer"), 300, 0, const Duration(milliseconds: 300));
     });
-
+    
     // test('app drawer 2', () async {
     //   await driver.waitFor(find.byType("drawer"));
     //   await Future.delayed(Duration(seconds: 2));

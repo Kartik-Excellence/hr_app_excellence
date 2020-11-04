@@ -37,7 +37,9 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: AppColors.GREEN_COLOR,
           title: Text('Home'),
         ),
-        drawer: Drawer(child: Text('here is drawre')),
+        drawer: Drawer(child: ListView(children: [
+          Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),Text(('sdfsdfsdfs')),
+        ],)),
         body: SingleChildScrollView(
           child: Overview(),
         ),
