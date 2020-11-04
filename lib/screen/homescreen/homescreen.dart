@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-       // key: Key('NavigationList'),
+        //key: Key('NavigationList'),
         appBar: AppBar(
           
           actions: <Widget>[
@@ -37,9 +37,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: AppColors.GREEN_COLOR,
           title: Text('Home'),
         ),
-        drawer: Container(key: Key('opendrawer'),
-        child: NavigationList(),
-        ),
+        drawer: Drawer(child: Text('here is drawre')),
         body: SingleChildScrollView(
           child: Overview(),
         ),

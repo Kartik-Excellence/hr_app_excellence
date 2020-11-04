@@ -7,9 +7,8 @@ class NavigationList extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Tooltip(message: 'Navigation',
-          child: Drawer(
-       // key: Key('NavigationLIst'),
+    return Drawer(
+       key: Key('NavigationLIst'),
         child:ListView(children: <Widget>[
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
@@ -27,7 +26,6 @@ class NavigationList extends StatelessWidget {
             NavigationText('Logout',LoginScreen()),
             
         ],),
-        ),
-    );
+        );
   }
 }

@@ -19,53 +19,33 @@ void homeScreenTest(FlutterDriver driver) async {
 
     test('Home Screen/', () async {
       await driver.waitFor(find.text('All employee information at one page'));
-    });
-
-    test('App Drawer /', () async {
-      await driver.waitFor(find.byType("Scaffold"));
-      await driver.tap(find.byValueKey('opendrawer'));
       await Future.delayed(Duration(seconds: 2));
     });
-    test('AppDrawer 1/', () async {
-      await driver.waitFor(find.byTooltip('Navigation'));
+
+    //  test('app drawer 4', () async {
+    //   await driver.waitFor(find.byType("AppBar"));
+    //   await Future.delayed(Duration(seconds: 2));
+    // });
+
+    // test('App Drawer 1', () async {
+    //   await driver.waitFor(find.byType("AppBar"));
+    //   await Future.delayed(Duration(seconds: 2));
+
+    // });
+
+    test('App Drawer 2', () async {
+      final SerializableFinder app = find.byValueKey('NavigationLIst');
+      await driver.scroll(app, 300.0, 0.0, const Duration(milliseconds: 300));
     });
 
-    test('AppDrawer 2/', () async {
-      await driver.waitFor(find.byValueKey('opendrawer'));
-    });
-
-    test('AppDrawer 3/', () async {
-      await driver.waitFor(find.byType("Container"));
-    });
-    // test('App Drawer 1/', () async {
-    //  await driver.tap(find.byType("Container"));
-    //  // await driver.tap(locateDrawer);
+    // test('app drawer 2', () async {
+    //   await driver.waitFor(find.byType("drawer"));
+    //   await Future.delayed(Duration(seconds: 2));
     // });
 
-    // test('App Drawer 2/', () async {
-    // //  await driver.tap(find.byValueKey('opendrawer'));
-    //  // await driver.tap(locateDrawer);
-    // });
-
-    //  final SerializableFinder locateDrawer = find.byType("NavigationList");
-    //   test('App Drawer 1/', () async {
-    //     await driver.waitFor(find.byType("Scaffold"));
-    //     await driver.tap(find.byType("Drawer"));
-    //   });
-
-    // test('App Drawer 2/', () async {
-    //   await driver.waitFor(find.byType("Scaffold"));
-    //   await driver.tap(find.byType("drawer"));
-    // });
-
-    // test('App Drawer 3/', () async {
-    //   await driver.waitFor(find.byType("Scaffold"));
-    //   await driver.tap(locateDrawer);
-    // });
-
-    // test('App Drawer 4/', () async {
-    //   await driver.waitFor(find.byType("Scaffold"));
-    //   await driver.tap(find.byType("NavigationList"));
+    // test('app drawer 3', () async {
+    //   await driver.waitFor(find.byType("NavigationList"));
+    //   await Future.delayed(Duration(seconds: 2));
     // });
   });
 }
